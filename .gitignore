@@ -3,3 +3,6 @@ dependency-reduced-pom.xml
 *iml
 .idea
 derby.log
+*.classpath
+*.project
+/.settings/
