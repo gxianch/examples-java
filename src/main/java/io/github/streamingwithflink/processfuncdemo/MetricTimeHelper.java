@@ -9,16 +9,7 @@ import java.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * MetricTimeHelper
- * 
- * @ApplicationName: shsnc-fk-new
- * @Title: MetricTimeHelper.java
- * @Package: com.shsnc.fk.common.datahandler.metrictime
- * @author: Shier
- * @date: 2020年11月24日 上午11:13:23
- * @version: V1.0
- */
+
 public class MetricTimeHelper {
 
 	public static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
