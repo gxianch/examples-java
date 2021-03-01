@@ -11,7 +11,7 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
-public class AverageSensorReadings {
+public class AverageSensorReadings2 {
 
     /**
      * main() defines and executes the DataStream program.
@@ -23,7 +23,7 @@ public class AverageSensorReadings {
 
         // set up the streaming execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-
+        env.setParallelism(1);
         // use event time for the application
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
         // configure watermark interval
