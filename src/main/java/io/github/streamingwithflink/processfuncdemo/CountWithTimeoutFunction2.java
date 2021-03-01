@@ -15,7 +15,7 @@ import org.apache.flink.util.Collector;
  * 先定义时间标识位,每5分钟一个标识位,标识位的下一秒触发onTimer回调,相比CountWithTimeoutFunction,
  * onTimer有多少条记录会回调onTimer多少次,而优化版只回调onTimer一次
  */
-public class MetricKeyedProcessOnTimerFunction
+public class CountWithTimeoutFunction2
 		extends KeyedProcessFunction<Tuple, Tuple2<String, String>, Tuple2<String, Long>> {
 
 	/** 由这个处理函数负责维护的状态 */

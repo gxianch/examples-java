@@ -59,7 +59,7 @@ public class StreamingJob2 {
 	                    }
 	                });
 		// 在keyed stream上应用该处理函数
-		DataStream<Tuple2<String, Long>> result = withTimestampsAndWatermarks.keyBy(0).process(new MetricKeyedProcessOnTimerFunction());
+		DataStream<Tuple2<String, Long>> result = withTimestampsAndWatermarks.keyBy(0).process(new CountWithTimeoutFunction2());
 	
 		// 输出查看 (good,2)(study,1)(day,2)(see,2)(up,1)(you,2)
 	        result.printToErr();
