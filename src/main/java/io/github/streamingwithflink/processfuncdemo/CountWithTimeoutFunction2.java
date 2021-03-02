@@ -8,7 +8,7 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.util.Collector;
 
-import io.github.streamingwithflink.util.MetricTimeHelper;
+import io.github.streamingwithflink.util.TimeHelper;
 
 /* CountWithTimeoutFunction优化版
  * 关联简单指标的MetricKeyedProcessOnTimerFunction,
@@ -58,8 +58,8 @@ public class CountWithTimeoutFunction2
 //		CountWithTimestamp [key=good, count=3, lastModified=1614561933684, lastModified+60000=1614561993684]
 //		CountWithTimestamp [key=good, count=4, lastModified=1614561933685, lastModified+60000=1614561993685]
 //		System.err.println(current);
-		long timeFlag = MetricTimeHelper.getTimeStampFlagByStep(ctx.timestamp(), "5");
-		String timeDtf = MetricTimeHelper.formatTime(timeFlag);
+		long timeFlag = TimeHelper.getTimeStampFlagByStep(ctx.timestamp(), "5");
+		String timeDtf = TimeHelper.formatTime(timeFlag);
 		// 从当前事件时间开始安排下一个计时器60秒   onTimer(timestamp) 触发的时间 
 //		ctx.timerService().registerEventTimeTimer(current.lastModified + 60000);
 		ctx.timerService().registerEventTimeTimer(timeFlag+1);

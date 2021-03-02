@@ -10,10 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class MetricTimeHelper {
+public class TimeHelper {
 
 	public static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	private final static Logger LOG = LoggerFactory.getLogger(MetricTimeHelper.class);
+	private final static Logger LOG = LoggerFactory.getLogger(TimeHelper.class);
 
 	/**
 	 * getNowTime 获取当前时间

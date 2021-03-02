@@ -19,7 +19,7 @@ import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindo
 import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 
-import io.github.streamingwithflink.util.MetricTimeHelper;
+import io.github.streamingwithflink.util.TimeHelper;
 
 /**
  * 实现fuhezhibiao的demo用例
@@ -38,8 +38,8 @@ public class ProcessingTimeWindowAggr {
 	            Random random = new Random();
 	            while (isRunning) {
 	            	//统计间隔1分钟,如果是5分钟呢
-	            	long timeFlag = MetricTimeHelper.getTimeStampFlagByStep(System.currentTimeMillis(), "1");
-	        		String timeDtf = MetricTimeHelper.formatTime(timeFlag);
+	            	long timeFlag = TimeHelper.getTimeStampFlagByStep(System.currentTimeMillis(), "1");
+	        		String timeDtf = TimeHelper.formatTime(timeFlag);
 //	                Thread.sleep((getRuntimeContext().getIndexOfThisSubtask() + 1) * 1000 * 5);
 	                Thread.sleep(100);
 	                String key = "类别" + (char) ('A' + random.nextInt(3))+timeDtf;

@@ -13,7 +13,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.SinkFunction;
 import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunction;
 
-import io.github.streamingwithflink.util.MetricTimeHelper;
+import io.github.streamingwithflink.util.TimeHelper;
 /**
  * https://www.infoq.cn/article/iGyoaq8_G3io63sqPglE
  * Apache Flink 零基础入门（三）：DataStream API 编程
@@ -28,8 +28,8 @@ public class ProcessingTimeWindowSample2 {
 	        public void run(SourceContext<Tuple2<String, Integer>> ctx) throws Exception {
 	            Random random = new Random();
 	            while (isRunning) {
-	            	long timeFlag = MetricTimeHelper.getTimeStampFlagByStep(System.currentTimeMillis(), "1");
-	        		String timeDtf = MetricTimeHelper.formatTime(timeFlag);
+	            	long timeFlag = TimeHelper.getTimeStampFlagByStep(System.currentTimeMillis(), "1");
+	        		String timeDtf = TimeHelper.formatTime(timeFlag);
 //	                Thread.sleep((getRuntimeContext().getIndexOfThisSubtask() + 1) * 1000 * 5);
 	                Thread.sleep(100);
 	                String key = "类别" + (char) ('A' + random.nextInt(3))+timeDtf;
