@@ -1,4 +1,4 @@
-package io.github.streamingwithflink.processfuncdemo;
+package io.github.streamingwithflink.util;
 
 import java.sql.Timestamp;
 import java.time.Instant;
