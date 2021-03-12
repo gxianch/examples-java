@@ -4,9 +4,6 @@ import java.util.HashMap;
 
 import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.streaming.api.functions.aggregation.AggregationFunction;
-
-import akka.stream.impl.fusing.Map;
 
 public class MergeAggregateFunc implements AggregateFunction<Tuple2<String,Integer>, HashMap<String, Integer>, HashMap<String, Integer>> {
 

@@ -46,6 +46,7 @@ public class SensorSource extends RichParallelSourceFunction<SensorReading> {
         String[] sensorIds = new String[10];
         double[] curFTemp = new double[10];
         for (int i = 0; i < 10; i++) {
+//            sensorIds[i] = "sensor_1";
             sensorIds[i] = "sensor_" + (taskIdx * 10 + i);
             curFTemp[i] = 65 + (rand.nextGaussian() * 20);
         }
@@ -65,6 +66,7 @@ public class SensorSource extends RichParallelSourceFunction<SensorReading> {
 
             // wait for 100 ms
             Thread.sleep(100);
+//            Thread.sleep(1000);
         }
     }
 

@@ -56,13 +56,15 @@ public class MultiStreamTransformations {
         DataStream<SmokeLevel> smokeReadings = env
             .addSource(new SmokeLevelSource())
             .setParallelism(1);
-
+        smokeReadings.printToErr();
         // group sensor readings by sensor id
         KeyedStream<SensorReading, String> keyedTempReadings = tempReadings
             .keyBy(r -> r.id);
 
         // connect the two streams and raise an alert if the temperature and
         // smoke levels are high
+        	//类似ruleAlarmTask connect CoFlatMapFunction 
+//        connect中的流像是传入smokeLevel规则 HIGH LOW
         DataStream<Alert> alerts = keyedTempReadings
             .connect(smokeReadings.broadcast())
             .flatMap(new RaiseAlertFlatMap());

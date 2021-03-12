@@ -77,7 +77,7 @@ public class BasicTransformations {
         //         .flatMap(new IdSplitter());
 
         // print result stream to standard out
-        splitIds.print();
+        splitIds.printToErr();
 
         // execute application
         env.execute("Basic Transformations Example");

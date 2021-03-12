@@ -48,7 +48,7 @@ public class CoProcessFunctionTimers {
                 Tuple2.of("sensor_2", 10_000L),
                 // forward readings of sensor_7 for 1 minute
                 Tuple2.of("sensor_7", 60_000L));
-
+        filterSwitches.printToErr();
         // ingest sensor stream
         DataStream<SensorReading> readings = env
             // SensorSource generates random temperature readings
